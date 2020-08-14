@@ -1,0 +1,29 @@
+package SelWebdriver;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Traverse_Xpath {
+	public static void main (String[] args) {
+		
+		System.setProperty("webdriver.chrome.driver", "F:\\SELENIUM\\chromedriver.exe");
+				
+		WebDriver driver = new ChromeDriver(); 
+		driver.get("https://www.facebook.com/"); 
+
+		driver.findElement(By.id("email")).sendKeys("cvft23@gmail.com");  
+		driver.findElement(By.name("pass")).sendKeys("sdfs32fq"); 
+
+		driver.findElement(By.cssSelector("input[value='Log In']")).click();
+
+//		USING TRAVARSE XPATH (Parent Xpath/Child/Child)
+		
+	//driver.findElement(By.xpath("//div[@data-ownerid='email']/div/div/div/text()")).click();
+		
+	System.out.println(driver.findElement(By.xpath("//div[contains(text(),'The email address that')]")).getText());
+
+			}
+	
+	
+}

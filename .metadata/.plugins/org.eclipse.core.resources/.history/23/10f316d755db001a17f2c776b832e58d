@@ -1,0 +1,72 @@
+package SelWebdriver;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+
+public class E2E_Cleartrip {
+
+	private static Boolean True;
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver", "F:\\SELENIUM\\chromedriver.exe");
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.spicejet.com/");
+		
+		driver.manage().window().maximize();
+	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	    
+	    String Title = driver.getTitle();
+	    System.out.println("Website title is : " + Title);
+	    
+	    Thread.sleep(2000);
+	    
+//	    driver.findElement(By.id("ctl00_mainContent_ddl_originStation1_CTXT")).click();
+//	    driver.findElement(By.xpath("//a[@value='CCU']")).click();
+//	    
+////	    driver.findElement(By.xpath("(//a[@text='Bagdogra (IXB)'])[2]")).click();
+//	    driver.findElement(By.xpath("//*[@id='ctl00_mainContent_ddl_destinationStation1_CTNR'] //a[@value='IXB']")).click();
+//	    
+//	    driver.findElement(By.cssSelector("a.ui-state-default.ui-state-highlight")).click(); //today's date
+	    
+//	    driver.findElement(By.xpath("//div[@id='divpaxinfo']")).click();
+//	    Thread.sleep(2000);
+//	    Select drp = new Select(driver.findElement(By.xpath("//*[@id='ctl00_mainContent_ddl_Adult']")));
+//	    drp.selectByValue("5");
+//	    Select drp2 = new Select(driver.findElement(By.xpath("//*[@id='ctl00_mainContent_ddl_Child']")));
+//	    drp2.selectByIndex(3);
+//	    Thread.sleep(2000);
+//	    driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency")).click();;
+//	    Select drp_currency = new Select(driver.findElement(By.xpath("//*[@id='ctl00_mainContent_DropDownListCurrency']")));
+//	    drp_currency.selectByVisibleText("USD");
+//	    Thread.sleep(2000);
+//	    Assert.assertEquals(driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency")).getText(),"USS");
+//	    
+	    //System.out.println(driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency")).getText());
+	    
+	   
+	    Thread.sleep(2000);
+Boolean checkbox = driver.findElement(By.xpath("//*[@id='ctl00_mainContent_chk_friendsandfamily']")).isSelected();
+//System.out.println(checkbox);
+	    if( checkbox == true) {
+	    	System.out.println("selected");
+	    }
+	    else {
+	    	System.out.println("not selected");
+	    }
+	    
+	    driver.findElement(By.xpath("//*[@id='ctl00_mainContent_chk_friendsandfamily']")).click();
+	    
+	    Assert.assertTrue(driver.findElement(By.xpath("//*[@id='ctl00_mainContent_chk_friendsandfamily']")).isSelected());
+	    
+	 
+		
+	}
+
+}
