@@ -3,7 +3,6 @@ package SelWebdriver;
 import java.util.Arrays;
 
 import java.util.List;
-
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -13,34 +12,51 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Add_to_cart {
+	
+	String promoText;
+	
 
 	public static void main(String[] args) throws InterruptedException {
 
-// TODO Auto-generated method stub
 
-		System.setProperty("webdriver.chrome.driver", "C://chromedriver.exe");
+
+		System.setProperty("webdriver.chrome.driver", "F:\\SELENIUM\\chromedriver.exe");
 
 		WebDriver driver = new ChromeDriver();
+		
+		//Implicit Wait
+		//driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
+		//Explicit Wait
+		WebDriverWait w =new WebDriverWait(driver,5);
 		String[] itemsNeeded = { "Cucumber", "Brocolli", "Beetroot" };
 
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/");
 
 		Thread.sleep(3000);
+		Add_to_cart item_Obj = new Add_to_cart();
+		item_Obj.addItems(driver, itemsNeeded);
+		item_Obj.cart_Promocode(driver, w);
+		
 
-		addItems(driver, itemsNeeded);
-
+		System.out.println("Promo Text in Main method:  "+item_Obj.promoText);
 	}
+	
+	
+	
+	
+	
+	
+	
 
-	public static void addItems(WebDriver driver, String[] itemsNeeded)
+	public  void addItems(WebDriver driver, String[] itemsNeeded)
 
-	{
+		{
 
 		int j = 0;
 
@@ -50,9 +66,9 @@ public class Add_to_cart {
 
 		{
 
-//Brocolli - 1 Kg
+//Broccoli - 1 Kg
 
-//Brocolli,    1 kg
+//Broccoli,    1 kg
 
 			String[] name = products.get(i).getText().split("-");
 
@@ -90,4 +106,22 @@ public class Add_to_cart {
 
 	}
 
+	public String cart_Promocode(WebDriver driver, WebDriverWait w) {
+		
+		driver.findElement(By.xpath("//img[@alt='Cart']")).click();
+		driver.findElement(By.xpath("//*[text()='PROCEED TO CHECKOUT']")).click();
+		
+		//2nd step, Explicit Wait for a locator
+		w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input.promoCode"))).sendKeys("rahulshettyacademy");
+		
+		driver.findElement(By.cssSelector("button.promoBtn")).click();
+		
+		//2nd step, Explicit Wait for a locator		
+		promoText=w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span.promoInfo"))).getText();
+		
+		
+		System.out.println("The text in Child Method: " +promoText);
+		return promoText;
+		
+	}
 }
