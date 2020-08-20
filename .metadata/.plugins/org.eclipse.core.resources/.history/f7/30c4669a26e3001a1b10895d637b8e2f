@@ -15,16 +15,12 @@ public class Iframe {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
 		
-		driver.get("https://jqueryui.com/droppable/");
+		driver.get("https://www.rahulshettyacademy.com/AutomationPractice/");
 		
-		//driver.switchTo().frame(driver.findElement(By.id("courses-iframe")));
-		driver.switchTo().frame(0);
-		String txt = driver.findElement(By.xpath("//div[@id='draggable']/p")).getText();
-		System.out.println(txt);
-		
-		
+		driver.switchTo().frame(driver.findElement(By.id("courses-iframe")));
 		
 	
+		driver.findElement(By.xpath("//div[@class='nav-outer clearfix']//a[contains(text(),'Courses')]")).click();
 		
 
 	}

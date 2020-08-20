@@ -22,8 +22,6 @@ public class Iframe {
 		String txt = driver.findElement(By.xpath("//div[@id='draggable']/p")).getText();
 		System.out.println(txt);
 		
-		
-		
 	
 		
 
