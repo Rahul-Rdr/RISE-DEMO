@@ -49,7 +49,7 @@ public class Windows_Handle {
 			driver.switchTo().window(windowName[0]);
 			textPathp=driver.findElement(By.cssSelector("div[class='example'] h3"));
 			String parentText=textPathp.getText();
-			System.out.println("Parent window text is: " +parentText); 
+			System.out.println("Parent window text is: " +parentText);
 			
 
 	}

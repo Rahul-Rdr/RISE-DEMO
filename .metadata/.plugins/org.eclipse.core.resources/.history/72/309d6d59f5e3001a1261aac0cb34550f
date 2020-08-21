@@ -1,18 +1,17 @@
 package SelWebdriver;
 
-import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
 public class Scope {
 
-	static String[] windowName = {"","","","",""};
 	public static void main(String[] args) {
 
 		System.setProperty("webdriver.chrome.driver", "F:\\SELENIUM\\chromedriver.exe");
@@ -38,29 +37,12 @@ public class Scope {
 		
 		List<WebElement> clikLinks = colDriver.findElements(By.tagName("a"));
 		
-		//clicking all thr link & opening in new tab
 		for(int i=1;i<clikLinks.size();i++) {
 			
 			String clickKeyPress = Keys.chord(Keys.CONTROL,Keys.ENTER);
 			clikLinks.get(i).sendKeys(clickKeyPress);
 		}
-		
-		//Handling all windows by WindowHandles
-		Set<String> winIds = driver.getWindowHandles();
-		Iterator<String> itr= winIds.iterator();
-		
-		//Iterating on next windows & geting the current window tiitle
-		int arr=0;
-		for(int i=0;i<windowName.length;i++) {		
-			
-			windowName[arr]=itr.next();
-			driver.switchTo().window(windowName[i]);
-			System.out.println(driver.getTitle());
-			arr++;
-		}
-		
 
-		
 	}
 
 }
