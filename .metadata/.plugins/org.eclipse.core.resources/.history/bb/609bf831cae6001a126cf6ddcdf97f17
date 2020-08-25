@@ -1,0 +1,20 @@
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.util.Date;
+
+public class AutomateAC {
+
+	public static void main(String[] args) {
+		
+	
+
+		LocalTime endTime = LocalTime.parse( "17:50" ) ;
+			
+		while(endTime.equals(java.time.LocalTime.now())) {
+			
+			
+		}
+		  
+	}
+
+}

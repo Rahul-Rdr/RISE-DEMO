@@ -1,0 +1,25 @@
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.util.Date;
+
+public class AutomateAC {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+
+		LocalTime endTime = LocalTime.parse( "18:40" ) ;
+		System.out.println(java.time.LocalTime.now());
+		
+		boolean x =endTime.equals(java.time.LocalTime.now());
+		
+		System.out.println(x);
+//		while(!endTime.equals(java.time.LocalTime.now())) {
+//			
+//			System.out.println("its under loop");
+//			Thread.sleep(5000);
+//		}
+//		
+//		System.out.println("its outer loop");
+	}
+
+}

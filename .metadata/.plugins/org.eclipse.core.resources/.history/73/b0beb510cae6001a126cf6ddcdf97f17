@@ -1,0 +1,27 @@
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.util.Date;
+
+public class AutomateAC {
+
+	public static void main(String[] args) {
+		
+//		//LocalTime endTime = 16:53:34.016578700;
+//
+////		String cTime = java.time.LocalTime.now().parse(text)
+////		
+//		LocalTime currentTime = java.time.LocalTime.now();
+//		
+//		  LocalTime endtime 
+//          = LocalTime.parse("16:53:34.016578700");
+//		  
+		
+		String currentTime = new SimpleDateFormat("HH:mm").format(new Date());
+		String endTime = "15:30";
+		boolean x = currentTime.equals(endTime);
+		
+		System.out.println(x);
+		  
+	}
+
+}

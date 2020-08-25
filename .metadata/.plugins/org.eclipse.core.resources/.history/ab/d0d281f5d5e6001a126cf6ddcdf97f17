@@ -1,0 +1,28 @@
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
+public class AutomateAC {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+
+		LocalTime endTime = LocalTime.parse( "18:50" ) ;
+		//System.out.println(java.time.LocalTime.now());
+		
+		boolean x =endTime.equals(LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm")));
+		System.out.println(endTime);
+		System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm")));
+		System.out.println(x);
+//		while(!endTime.equals(java.time.LocalTime.now())) {
+//			
+//			System.out.println("its under loop");
+//			Thread.sleep(5000);
+//		}
+//		
+//		System.out.println("its outer loop");
+	}
+
+}

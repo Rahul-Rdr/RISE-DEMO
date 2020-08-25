@@ -24,7 +24,7 @@ public class WebTables {
 
 		WebElement tableDriver = driver.findElement(By.xpath("//*[@class='match-scorecard-page']/div[1]/div[1]"));
 
-		List<WebElement> scoreCol = tableDriver.findElements(By.xpath("//table[@class='table batsman']/tbody/tr/td[3]"));
+	List<WebElement> scoreCol = tableDriver.findElements(By.xpath("//table[@class='table batsman']/tbody/tr/td[3]"));
 
 		for (int i = 0; i < scoreCol.size(); i++) {
 
