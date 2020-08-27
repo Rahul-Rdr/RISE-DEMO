@@ -13,9 +13,6 @@ public class Gmail {
 		System.setProperty("webdriver.chrome.driver", "F:\\SELENIUM\\chromedriver.exe");
 
 		WebDriver driver = new ChromeDriver();
-		//options = webdriver.ChromeOptions();
-		//options.add_argument('headless');
-		//options.add_argument('window-size=1200x600'); // optional
 		
 		//Implicit Wait
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
