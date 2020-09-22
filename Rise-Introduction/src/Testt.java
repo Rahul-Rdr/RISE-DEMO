@@ -4,8 +4,8 @@ public class Testt {
 
 	public static void main(String[] args) {
 
-		LocalTime startTime = LocalTime.of(01, 00, 00, 000);
-		LocalTime endTime = LocalTime.of(06, 30, 00, 000);
+		LocalTime startTime = LocalTime.of(01, 00, 00, 000); //1:00 AM
+		LocalTime endTime = LocalTime.of(06, 30, 00, 000);  //6:30 AM
 
 
 		Testt dateTimeExample = new Testt();
@@ -19,6 +19,8 @@ public class Testt {
 
 		System.out.println("Interval finish");
 	}
+	
+	
 	private void execute(LocalTime startTime, LocalTime endTime) throws InterruptedException {
 		Boolean acIsOn = false;
 		LocalTime now = null;
@@ -28,7 +30,7 @@ public class Testt {
 			now = LocalTime.now();
 
 			if (now.isAfter(endTime)) {
-				System.out.println("Enter future time on endTime");
+				System.out.println("Enter correct value on endTime");
 				break;
 			}
 
